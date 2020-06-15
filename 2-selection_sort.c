@@ -23,7 +23,7 @@ void selection_sort(int *array, size_t size)
 			if (array[j] < array[key_pos])
 				key_pos = j;
 		}
-		if(key_pos != i)
+		if (key_pos != i)
 		{
 			swap(&array[key_pos], &array[i]);
 			print_array((const int *)array, size);
