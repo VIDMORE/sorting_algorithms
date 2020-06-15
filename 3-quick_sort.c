@@ -10,7 +10,10 @@
 void quick_sort(int *array, size_t size)
 {
 	int low = 0, high = size - 1;
-	
+
+	if (!array)
+		return;
+
 	quick_s(array, low, high, size);
 }
 
@@ -47,19 +50,26 @@ void quick_s(int *array, int low, int high, size_t size)
 int lomuto_partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
-	int i = (low - 1), j = 0;
+	int i = low, j = low;
 
-	for (j = low; j <= high - 1; j++)
+	for (; j < high; j++)
 	{
 		if (array[j] <= pivot)
-		{
+		{	
+			if (j != i)
+			{
+				swap(&array[i], &array[j]);
+				print_array((const int *)array, size);
+			}
 			i++;
-			swap(&array[i], &array[j]);
 		}
 	}
-	swap(&array[i + 1], &array[high]);
-	print_array((const int *)array, size);
-	return (i + 1);
+	if (i != high)
+	{
+		swap(&array[i], &array[high]);
+		print_array((const int *)array, size);
+	}
+	return (i);
 }
 
 /**
