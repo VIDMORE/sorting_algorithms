@@ -1,8 +1,8 @@
 #include "sort.h"
 
 /**
- * insertion_sort - Sorts an array of integers in ascending order using the
- * Insertion sort algorithm
+ * insertion_sort_list - Sorts an array of integers in ascending order
+ * using the Insertion sort algorithm
  * @list: The linked list to be sorted
  * Return: void
  */
@@ -21,7 +21,6 @@ void insertion_sort_list(listint_t **list)
 		next_iter = current->next;
 		while (current->prev && current->n < current->prev->n)
 		{
-			//Tati
 			current->prev->next = current->next;
 			if (current->next)
 				current->next->prev = current->prev;
