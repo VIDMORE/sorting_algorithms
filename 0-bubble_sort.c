@@ -10,29 +10,31 @@
 
 void bubble_sort(int *array, size_t size)
 {
-	size_t j = 0, swapped;
+	size_t i = 0, j = 0, swapped = 0;
 
 	if (!*array || !array || size < 2 || !size) /* Check */
 		return;
 
-	do {
-		swapped = 0;
-		for (j = 0; j < size - 1; j++)
+	while (!swapped)
+	{
+		swapped = 1;
+		for (j = 0; j < size - 1 - i; j++)
 		{
 			if (array[j + 1] < array[j])
 			{
 				swap(&array[j + 1], &array[j]);
 				print_array((const int *)array, size);
-				swapped = 1;
+				swapped = 0;
 			}
 		}
-	} while (swapped);
+		i++;
+	}
 }
 
 /**
  * swap - Swaps two integers
  * @n1: number 1
- * @n1: number 2
+ * @n2: number 2
  * Return: void
  */
 void swap(int *n1, int *n2)
