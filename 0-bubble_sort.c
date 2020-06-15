@@ -12,7 +12,7 @@ void bubble_sort(int *array, size_t size)
 {
 	size_t j = 0, swapped = 0;
 
-	if (!*array || !array || size < 2 || !size) /* Check */
+	if (!array || !size)
 		return;
 
 	while (!swapped)
