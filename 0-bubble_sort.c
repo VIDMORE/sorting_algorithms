@@ -15,19 +15,20 @@ void bubble_sort(int *array, size_t size)
 	if (!*array || !array || size < 2 || !size) /* Check */
 		return;
 
-	while (!swapped)
+	for (i = 0; i < size - 1; i++)
 	{
-		swapped = 1;
+		swapped = 0;
 		for (j = 0; j < size - 1 - i; j++)
 		{
 			if (array[j + 1] < array[j])
 			{
 				swap(&array[j + 1], &array[j]);
 				print_array((const int *)array, size);
-				swapped = 0;
+				swapped = 1;
 			}
 		}
-		i++;
+		if (!swapped)
+			break;
 	}
 }
 
